@@ -14,6 +14,16 @@ export default function NavBar(): JSX.Element {
 
   const gameStatus = useGameStatus((state) => state.gameStatus);
   const setGameTime = useGameTime((state) => state.setGameTime);
+  const [isTimerOn, setIsTimerOn] = useState(false)
+
+  if(gameStatus === "playing" && !isTimerOn){
+    timer()
+    setIsTimerOn(true)
+  } else if (gameStatus === 'end-menu' && isTimerOn){
+    clearInterval(stopwatch.intervalId)
+    setGameTime(timerValue)
+    setIsTimerOn(false)
+  }
 
   function timer(): void {
     stopwatch.startTime = Date.now();
@@ -36,17 +46,8 @@ export default function NavBar(): JSX.Element {
     }, 10);
   }
 
-  useEffect(() => {
-    if (gameStatus === "playing") timer();
-    else {
-      setGameTime(timerValue);
-      clearInterval(stopwatch.intervalId);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameStatus]);
-
   return (
-    <div className="bg-black fixed top-0 w-full flex justify-center py-2 gap-8 z-10">
+    <div className={`${gameStatus === 'playing' ? '':'hidden'} bg-black fixed top-0 w-full flex justify-center py-2 gap-8 z-10`}>
       {timerValue}
     </div>
   );
