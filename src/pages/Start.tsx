@@ -21,6 +21,7 @@ export default function Start(): JSX.Element {
     (state) => state.characterLastFound
   );
   const [showCharacterDropdown, setShowCharacterDropdown] = useState(false);
+  const [totalGuessesTaken, setTotalGuessesTaken] = useState(0)
 
   const charactersLeft = useGameCharactersLeft((state) => state.charactersLeft);
   const setCharactersLeft = useGameCharactersLeft(
@@ -76,7 +77,6 @@ export default function Start(): JSX.Element {
     });
     if (didFindCharacter) {
       let newCharactersLeft: Array<string | null> = [];
-      console.log("didfind", targetCharacter);
       charactersLeft.forEach((character) => {
         if (character !== targetCharacter) newCharactersLeft.push(character);
       });
@@ -89,6 +89,7 @@ export default function Start(): JSX.Element {
     } else {
       setCharacterLastFound(targetCharacter);
       setLastGuessMissed(true);
+      setTotalGuessesTaken(totalGuessesTaken+1)
     }
   }
 
@@ -97,11 +98,10 @@ export default function Start(): JSX.Element {
       setShowCharacterDropdown(true);
       setTimeout(() => setShowCharacterDropdown(false), 2000);
     }
-  }, [lastFoundCharacter]);
+  }, [lastFoundCharacter, lastGuessMissed, totalGuessesTaken]);
 
   return (
     <div className="w-full h-full text-gray-300">
-      <NavBar />
       <CharacterDropdown
         showDropdown={showCharacterDropdown}
         characterName={lastFoundCharacter}
