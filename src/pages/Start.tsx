@@ -12,7 +12,6 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import Footer from "./components/Footer";
 
-
 export default function Start(): JSX.Element {
   const [targetLocation, setTargetLocation] = useState({ x: 0, y: 0 });
   const [showTargetBox, setShowTargetBox] = useState(false);
@@ -99,7 +98,6 @@ export default function Start(): JSX.Element {
       setTimeout(() => setShowCharacterDropdown(false), 2000);
     }
   }, [lastFoundCharacter]);
-
 
   return (
     <div className="w-full h-full text-gray-300">
