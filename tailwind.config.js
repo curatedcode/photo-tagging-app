@@ -9,7 +9,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "modals-image": "url('/start-modal-bg.svg')"
+      },
+      backgroundColor: {
+        "modal-green": "rgb(22,28,20)",
+        "modal-light-green": "rgb(35,80,37)"
+      }
+    },
   },
   plugins: [],
 }
