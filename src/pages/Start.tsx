@@ -7,7 +7,6 @@ import {
 import React, { useState, useRef, useEffect } from "react";
 import CharacterCard from "./components/CharacterCard";
 import CharacterDropdown from "./components/CharacterDropdown";
-import NavBar from "./components/NavBar";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import Footer from "./components/Footer";
