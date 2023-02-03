@@ -42,6 +42,7 @@ export default function NavBar(): JSX.Element {
       const leadZeroTime = [minutes, seconds, milliseconds]
         .map((time) => (time < 10 ? `0${time}` : time))
         .join(":");
+        console.log(leadZeroTime)
       setTimerValue(leadZeroTime);
     }, 10);
   }
