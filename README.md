@@ -38,6 +38,6 @@ npm start
 
 ## Screenshots
 
-![Start Menu](https://postimg.cc/Zv9VbScH)
-![Playing](https://postimg.cc/hhhCbLBm)
-![End Menu](https://postimg.cc/d7vH8gsQ)
+![Start Menu](https://i.postimg.cc/0jn3C5KT/Screenshot-from-2023-02-03-05-38-37.png)
+![Playing](https://i.postimg.cc/jq4GTc3M/Screenshot-from-2023-02-03-05-39-00.png)
+![End Menu](https://i.postimg.cc/wBRCddnN/Screenshot-from-2023-02-03-05-39-12.png)
